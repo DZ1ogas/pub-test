@@ -1,0 +1,6 @@
+com\example\demo\DemoApplication.class
+com\example\demo\hello\HelloService.class
+com\example\demo\hello\HelloServiceConfig.class
+com\example\demo\hello\StudentRepository.class
+com\example\demo\hello\Student.class
+com\example\demo\hello\HelloController.class
