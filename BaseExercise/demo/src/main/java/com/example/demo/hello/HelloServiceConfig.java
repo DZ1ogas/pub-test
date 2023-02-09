@@ -13,11 +13,11 @@ public class HelloServiceConfig implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Doctor p1 = new Doctor("Apostolis", "Associate Prof");
-		hs.addProfessor(p1);
+		hs.addDoctor(p1);
 		Doctor p2 = new Doctor("Daniel", "Assistant Prof");
-		hs.addProfessor(p2);
+		hs.addDoctor(p2);
 		Doctor p3 = new Doctor("Alex", "Prof");
-		hs.addProfessor(p3);
+		hs.addDoctor(p3);
 		
 		Course c3 = new Course("OOP", 3);
 		c3.setProfessor(p3);
@@ -34,16 +34,16 @@ public class HelloServiceConfig implements CommandLineRunner {
 		Civilian s1 = new Civilian("Nikos",28,"Thessaloniki");
 		s1.addCourse(c2);
 		s1.addCourse(c3);
-		hs.addStudent(s1);
+		hs.addCivilian(s1);
 		
 		Civilian s2 = new Civilian("Elvira",35,"Thessaloniki");
 		s2.addCourse(c1);
 		s2.addCourse(c4);
-		hs.addStudent(s2);
+		hs.addCivilian(s2);
 		
 		Civilian s3 = new Civilian("Sofia",36,"Groningen");
 		s3.addCourse(c5);
-		hs.addStudent(s3);
+		hs.addCivilian(s3);
 	}
 
 }

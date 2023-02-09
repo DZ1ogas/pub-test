@@ -14,11 +14,11 @@ public class HelloController {
 	
 	@GetMapping(path="/students")
 	public List<Civilian> getAllStudent()  throws Exception{
-		return hs.getAllStudents();
+		return hs.getAllCivilians();
 	} 
 	
 	@PostMapping(path="/addStudent")
 	public void addStudent(@RequestBody Civilian st) throws Exception {
-		hs.addStudent(st);
+		hs.addCivilian(st);
 	}
 }

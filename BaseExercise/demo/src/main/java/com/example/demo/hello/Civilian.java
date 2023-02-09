@@ -11,11 +11,12 @@ public class Civilian {
 	private int socialSec;
 	private int afm;
 	private String email;
-	
+	// TODO connection to other tables
 	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name="student_courses", 
 			   joinColumns = @JoinColumn(name="student_name"),
 			   inverseJoinColumns = @JoinColumn(name="course_name"))
+	// TODO fix should be rantevou
 	private Set<Course> courses = new HashSet<Course>();
 
 	//default constructor
@@ -39,6 +40,7 @@ public class Civilian {
 	public int getSocialSec() {return socialSec;}
 	public int getAfm() {return afm;}
 	public String getEmail() {return email;}
+	// TODO fix should be rantevou
 	public Set<Course> getCourses() {return courses;}
 	
 }

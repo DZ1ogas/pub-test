@@ -8,24 +8,24 @@ import org.springframework.stereotype.*;
 public class HelloService {
 
 	@Autowired
-	private CivilianRepository studentRepository;
+	private CivilianRepository civilianRepository;
 	@Autowired
-	private DoctorRepository profRepository;
+	private DoctorRepository doctorRepository;
 
-	public void addStudent(Civilian s) throws Exception {
-		Optional<Civilian> byId = studentRepository.findById(s.getfirstName());
+	public void addCivilian(Civilian s) throws Exception {
+		Optional<Civilian> byId = civilianRepository.findById(s.getlastName());
 		if(!byId.isPresent())
-			studentRepository.save(s);
+			civilianRepository.save(s);
 	}
 	
-	public void addProfessor(Doctor p) throws Exception {
-		Optional<Doctor> byId = profRepository.findById(p.getName());
+	public void addDoctor(Doctor p) throws Exception {
+		Optional<Doctor> byId = doctorRepository.findById(p.getlastName());
 		if(!byId.isPresent())
-			profRepository.save(p);
+			doctorRepository.save(p);
 	}	
 
-	public List<Civilian> getAllStudents() throws Exception {
-		return studentRepository.findAll();
+	public List<Civilian> getAllCivilians() throws Exception {
+		return civilianRepository.findAll();
 	}
 
 }
