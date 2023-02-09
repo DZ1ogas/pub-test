@@ -13,12 +13,12 @@ public class HelloController {
 	private HelloService hs;
 	
 	@GetMapping(path="/students")
-	public List<Student> getAllStudent()  throws Exception{
+	public List<Civilian> getAllStudent()  throws Exception{
 		return hs.getAllStudents();
 	} 
 	
 	@PostMapping(path="/addStudent")
-	public void addStudent(@RequestBody Student st) throws Exception {
+	public void addStudent(@RequestBody Civilian st) throws Exception {
 		hs.addStudent(st);
 	}
 }

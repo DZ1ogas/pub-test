@@ -4,7 +4,7 @@ import java.util.*;
 import javax.persistence.*;
 
 @Entity
-public class Professor {
+public class Doctor {
 	@Id
 	private String name;
 	private String rank;
@@ -14,9 +14,9 @@ public class Professor {
 		       fetch = FetchType.LAZY)
 	private List<Course> courses = new ArrayList<Course>();
 	
-	public Professor() {}
+	public Doctor() {}
 	
-	public Professor(String n, String r) {
+	public Doctor(String n, String r) {
 		name = n;
 		rank = r;
 	}

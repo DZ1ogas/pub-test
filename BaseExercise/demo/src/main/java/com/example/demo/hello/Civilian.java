@@ -4,11 +4,13 @@ import java.util.*;
 import javax.persistence.*;
 
 @Entity
-public class Student {
+public class Civilian {
 	@Id
-	private String name;
-	private int age;
-	private String location;
+	private String firstName;
+	private String lastName;
+	private int socialSec;
+	private int afm;
+	private String email;
 	
 	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name="student_courses", 
@@ -17,12 +19,14 @@ public class Student {
 	private Set<Course> courses = new HashSet<Course>();
 
 	//default constructor
-	public Student(){}
+	public Civilian(){}
 
-	public Student(String n, int a, String l) {
-		name = n;
-		age = a;
-		location =l;
+	public Civilian(String fn, String ln, int ss, int a, String em) {
+		firstName = fn;
+		lastName = ln;
+		socialSec = ss;
+		afm = a;
+		email = em;
 	}
 
 	public void addCourse(Course c) {
@@ -30,9 +34,11 @@ public class Student {
 		c.addStudent(this);
 	}
 	
-	public String getName() {return name;}
-	public int getAge() {return age;}
-	public String getLocation() {return location;}
+	public String getfirstName() {return firstName;}
+	public String getlastName() {return lastName;}
+	public int getSocialSec() {return socialSec;}
+	public int getAfm() {return afm;}
+	public String getEmail() {return email;}
 	public Set<Course> getCourses() {return courses;}
 	
 }

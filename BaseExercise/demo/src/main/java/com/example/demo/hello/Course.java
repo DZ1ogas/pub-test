@@ -10,11 +10,11 @@ public class Course {
 	private int semester;
 	
 	@ManyToMany(mappedBy="courses")
-	private Set<Student> students = new HashSet<Student>();
+	private Set<Civilian> students = new HashSet<Civilian>();
 	
 	@ManyToOne
 	@JoinColumn(name="professor_name")
-	private Professor lecturer; 
+	private Doctor lecturer; 
 	
 	public Course() {
 		
@@ -25,15 +25,15 @@ public class Course {
 		semester =s;
 	}
 	
-	public void setProfessor(Professor p) {
+	public void setProfessor(Doctor p) {
 		lecturer = p;
 	}
 	
 	public String getName() {return name;}
 	public int getSemester() {return semester;}
-	public Professor getProfessor() {return lecturer;}
+	public Doctor getProfessor() {return lecturer;}
 
-	public void addStudent(Student s) {
+	public void addStudent(Civilian s) {
 		students.add(s);
 	}
 	
