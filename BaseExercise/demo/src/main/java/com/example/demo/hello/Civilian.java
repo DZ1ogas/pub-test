@@ -8,8 +8,8 @@ public class Civilian {
 	@Id
 	private String firstName;
 	private String lastName;
-	private int socialSec;
-	private int afm;
+	private String socialSec;
+	private String afm;
 	private String email;
 	// TODO connection to other tables
 	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE})
@@ -22,7 +22,7 @@ public class Civilian {
 	//default constructor
 	public Civilian(){}
 
-	public Civilian(String fn, String ln, int ss, int a, String em) {
+	public Civilian(String fn, String ln, String ss, String a, String em) {
 		firstName = fn;
 		lastName = ln;
 		socialSec = ss;
@@ -37,8 +37,8 @@ public class Civilian {
 	
 	public String getfirstName() {return firstName;}
 	public String getlastName() {return lastName;}
-	public int getSocialSec() {return socialSec;}
-	public int getAfm() {return afm;}
+	public String getSocialSec() {return socialSec;}
+	public String getAfm() {return afm;}
 	public String getEmail() {return email;}
 	// TODO fix should be rantevou
 	public Set<Course> getCourses() {return courses;}

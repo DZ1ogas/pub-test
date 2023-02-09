@@ -8,7 +8,7 @@ public class Doctor {
 	@Id
 	private String firstName;
 	private String lastName;
-	private int socialSec;
+	private String socialSec;
 	// TODO connection to tables
 	@OneToMany(mappedBy="lastName", 
 		       cascade= CascadeType.ALL,
@@ -17,7 +17,7 @@ public class Doctor {
 	
 	public Doctor() {}
 	
-	public Doctor(String fn, String ln, int ss) {
+	public Doctor(String fn, String ln, String ss) {
 		firstName = fn;
 		lastName = ln;
 		socialSec = ss;
@@ -25,7 +25,7 @@ public class Doctor {
 	
 	public String getfirstName() {return firstName;}
 	public String getlastName() {return lastName;}
-	public int getSocialSec() {return socialSec;}
+	public String getSocialSec() {return socialSec;}
 	
 	// TODO add timeslot method after implementation of timeslot
 	public void addCourse(Course c) {
