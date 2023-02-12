@@ -11,13 +11,13 @@ public class Civilian {
 	private String socialSec;
 	private String afm;
 	private String email;
-	// TODO connection to other tables
+	// TODO connection to other tables  1 to 1
 	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinTable(name="student_courses", 
-			   joinColumns = @JoinColumn(name="student_name"),
-			   inverseJoinColumns = @JoinColumn(name="course_name"))
+	@JoinTable(name="civilian_timeslot", 
+			   joinColumns = @JoinColumn(name="civilian_lastName"),
+			   inverseJoinColumns = @JoinColumn(name="timeslots"))
 	// TODO fix should be rantevou
-	private Set<Course> courses = new HashSet<Course>();
+	private Set<TimeSlot> timeslots = new HashSet<TimeSlot>();
 
 	//default constructor
 	public Civilian(){}
@@ -29,10 +29,10 @@ public class Civilian {
 		afm = a;
 		email = em;
 	}
-
-	public void addCourse(Course c) {
-		courses.add(c);
-		c.addStudent(this);
+	
+	public void addTimeslot(TimeSlot t) {
+		timeslots.add(t);
+		t.addCivilian(this);
 	}
 	
 	public String getfirstName() {return firstName;}
@@ -41,6 +41,6 @@ public class Civilian {
 	public String getAfm() {return afm;}
 	public String getEmail() {return email;}
 	// TODO fix should be rantevou
-	public Set<Course> getCourses() {return courses;}
+	public Set<TimeSlot> getTimeslots() {return timeslots;}
 	
 }

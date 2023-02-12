@@ -13,7 +13,7 @@ public class Doctor {
 	@OneToMany(mappedBy="lastName", 
 		       cascade= CascadeType.ALL,
 		       fetch = FetchType.LAZY)
-	private List<Course> courses = new ArrayList<Course>();
+	private List<TimeSlot> timeslots = new ArrayList<TimeSlot>();
 	
 	public Doctor() {}
 	
@@ -28,7 +28,7 @@ public class Doctor {
 	public String getSocialSec() {return socialSec;}
 	
 	// TODO add timeslot method after implementation of timeslot
-	public void addCourse(Course c) {
-		courses.add(c);		
+	public void addTimeslot(TimeSlot c) {
+		timeslots.add(c);		
 	}
 }

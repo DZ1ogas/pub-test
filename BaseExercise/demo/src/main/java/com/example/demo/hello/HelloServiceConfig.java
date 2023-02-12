@@ -29,7 +29,7 @@ public class HelloServiceConfig implements CommandLineRunner {
 		c5.setProfessor(p2);
 		*/
 		
-		Civilian s1 = new Civilian("Nikos",28,"Thessaloniki");
+		/*Civilian s1 = new Civilian("Nikos",28,"Thessaloniki");
 		s1.addCourse(c2);
 		s1.addCourse(c3);
 		hs.addCivilian(s1);
@@ -42,6 +42,7 @@ public class HelloServiceConfig implements CommandLineRunner {
 		Civilian s3 = new Civilian("Sofia",36,"Groningen");
 		s3.addCourse(c5);
 		hs.addCivilian(s3);
+		*/
 	}
 
 }

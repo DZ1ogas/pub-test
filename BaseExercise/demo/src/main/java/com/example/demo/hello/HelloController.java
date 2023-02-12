@@ -12,13 +12,13 @@ public class HelloController {
 	@Autowired
 	private HelloService hs;
 	
-	@GetMapping(path="/students")
-	public List<Civilian> getAllStudent()  throws Exception{
+	@GetMapping(path="/civilians")
+	public List<Civilian> getAllCivilians()  throws Exception{
 		return hs.getAllCivilians();
 	} 
 	
-	@PostMapping(path="/addStudent")
-	public void addStudent(@RequestBody Civilian st) throws Exception {
+	@PostMapping(path="/addCivilian")
+	public void addCivilian(@RequestBody Civilian st) throws Exception {
 		hs.addCivilian(st);
 	}
 }

@@ -13,7 +13,7 @@ public class VaccinationCenter {
 	@OneToMany(mappedBy="numID", 
 		       cascade= CascadeType.ALL,
 		       fetch = FetchType.LAZY)
-	private List<Course> courses = new ArrayList<Course>();
+	private List<TimeSlot> courses = new ArrayList<TimeSlot>();
 	
 	public VaccinationCenter() {}
 	
@@ -26,7 +26,7 @@ public class VaccinationCenter {
 	public String getAddress() {return address;}
 	
 	// TODO add timeslot method after implementation of timeslot
-	public void addCourse(Course c) {
+	public void addCourse(TimeSlot c) {
 		courses.add(c);		
 	}
 }
