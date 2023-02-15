@@ -1,0 +1,132 @@
+<html>
+
+<body>
+    <title>
+        Enter Timeslot
+    </title>
+
+    <style>
+        .info {
+            padding-top: 40px;
+            align-items: center;
+            width: 50%;
+            margin-left: 35%;
+            margin-right: 35%;
+        }
+        
+        .info.day {
+            margin: 20px;
+        }
+        
+        .info.month {
+            margin: 20px;
+        }
+        
+        .info.year {
+            width: 50%;
+            margin-top: 20px;
+        }
+        
+        .info.minutesEnd {
+            width: 50%;
+            margin-top: 20px;
+        }
+        
+        .info.minutesEnd {
+            width: 50%;
+            margin-top: 20px;
+        }
+        
+        .info.doctor {
+            width: 50%;
+            margin-top: 20px;
+        }
+        
+        .submit {
+            margin-top: 20px;
+            margin-left: 2%;
+            margin-right: 2%;
+            padding: 10px;
+            width: 20%;
+        }
+        
+        .am {
+            margin-left: 20px;
+        }
+        
+        .d {
+            margin-left: 15px;
+        }
+        
+        .y {
+            margin-left: 15px;
+        }
+        
+        .to {
+            margin-left: 20px;
+        }
+        
+        .b2 {
+            margin-top: 20px;
+            margin-right: 50px;
+        }
+        
+        .b3 {
+            margin-top: 20px;
+        }
+        
+        .cad {
+            margin-right: 50px;
+        }
+    </style>
+
+    <form action="/action_page.php">
+        <div class="info">
+            <h1 class="appo">Create an appointment</h1>
+            <h3>Enter civilian information</h3>
+            <div class="Fname">
+                <label for="Fname">First Name:</label>
+                <input type="Fname" name="Fname"><br><br>
+            </div>
+            <div class="Lname">
+                <label for="Lname">Last Name:</label>
+                <input type="text" name="Lname"><br><br>
+            </div>
+            <div class="AMKA">
+                <label for="AMKA">AMKA:</label>
+                <input class="am" type="text" name="AMKA"><br><br>
+            </div>
+            <h3>Enter the desired time</h3>
+            <div class="day">
+                <label for="day">Day:</label>
+                <input class="d" type="text" name="day"><br><br>
+            </div>
+            <div class="month">
+                <label for="month">Month:</label>
+                <input type="text" name="month"><br><br>
+            </div>
+            <div class="year">
+                <label for="year">Year:</label>
+                <input class="y" type="text" name="year"><br><br>
+            </div>
+            <div class="minutesStart">
+                <h3>Select timespace in minutes:</h3>
+                <label for="minstart">From:</label>
+                <input type="text" name="minStart"><br><br>
+            </div>
+            <div class="minutesEnd">
+                <label for="minend">To:  </label>
+                <input class="to" type="text" name="minEnd"><br><br>
+            </div>
+            <div class="doctor">
+                <h3>Select the doctor:</h3>
+                <label for="doctor">Doctor:</label>
+                <input type="text" name="doctor"><br><br>
+            </div>
+            <input class="submit" type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+
+
+</html>

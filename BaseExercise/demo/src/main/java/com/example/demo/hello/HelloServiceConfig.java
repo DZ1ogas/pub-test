@@ -14,7 +14,8 @@ public class HelloServiceConfig implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Doctor d1 = new Doctor("Dimitris", "ZG", "30029300183");
 		hs.addDoctor(d1);
-		Doctor d2 = new Doctor("Dimitris", "KP", "15129300184");
+		Doctor d2 = new Doctor("D"
+				+ "imitris", "KP", "15129300184");
 		hs.addDoctor(d2);
 		/*
 		Course c3 = new Course("OOP", 3);

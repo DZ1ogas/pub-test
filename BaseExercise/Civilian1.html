@@ -1,0 +1,118 @@
+<html>
+
+<body>
+    <title>
+        Main menu
+    </title>
+
+    <style>
+        .timeslotsByDay {
+            padding-top: 40px;
+            width: 100%;
+            padding-left: 40%;
+            padding-right: 40%;
+        }
+        
+        .mm {
+            width: 100%;
+            padding-left: 2%;
+            padding-right: 2%;
+        }
+        
+        .submit {
+            margin-top: 20px;
+            margin-left: 4%;
+            margin-right: 4%;
+            width: 5%;
+            padding: 10px;
+        }
+        
+        .d {
+            margin-left: 15px;
+            margin-top: 20px;
+        }
+        
+        .y {
+            margin-left: 15px;
+        }
+        
+        .mod {
+            margin-top: 40px;
+        }
+        
+        .b1 {
+            margin-top: 20px;
+            margin-left: 4%;
+            margin-right: 4%;
+            width: 5%;
+            padding: 10px;
+        }
+        
+        .b2 {
+            margin-top: 20px;
+            margin-left: 4%;
+            margin-right: 4%;
+            width: 5%;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function submitButton() {
+            var submit = document.getElementById("submit");
+            var day = document.getElementsById("d");
+            var month = document.getElementsById("m");
+            var year = document.getElementsById("y");
+            if (day != null && month != null && year != null) {
+                window.location = "Civilian2.html";
+            }
+        }
+    </script>
+
+    <form action="/action_page.php">
+        <div class="timeslotsByDay">
+            <div class="mm">
+                <h1>Main Menu</h1>
+            </div>
+            <h2>1. Create Appointment</h2>
+
+            <h2>Enter Desired Date</h2>
+            <div class="day">
+                <label for="day">Day:</label>
+                <input class="d" type="text" name="day" id="d"><br><br>
+            </div>
+            <div class="month">
+                <label for="month">Month:</label>
+                <input type="text" name="month" id="m"><br><br>
+            </div>
+            <div class="year">
+                <label for="year">Year:</label>
+                <input class="y" type="text" name="year" id="y"><br><br>
+            </div>
+
+            <input class="submit" type="submit" id="submit" value="Submit" onclick="submitButton()">
+
+            <h2 class="mod">2. Reschedule Appointment</h2>
+            <h2>Enter Desired Date</h2>
+            <div class="day">
+                <label for="day">Day:</label>
+                <input class="d" type="text" name="day"><br><br>
+            </div>
+            <div class="month">
+                <label for="month">Month:</label>
+                <input type="text" name="month"><br><br>
+            </div>
+            <div class="year">
+                <label for="year">Year:</label>
+                <input class="y" type="text" name="year"><br><br>
+            </div>
+            <input class="b1" type="submit" value="Reschedule">
+
+
+            <h2>3. View Your Status</h2>
+            <input class="b2" type="submit" value="Status">
+        </div>
+    </form>
+</body>
+
+
+</html>

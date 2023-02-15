@@ -10,7 +10,8 @@ public class TimeSlot {
 	private LocalDateTime startAppointment;
 	private LocalDateTime endAppointment;
 	private Doctor examiner;
-	private boolean available= true;
+	private TreeSet<Integer> nextThirtyDays = new TreeSet<Integer>();
+
 	
 	@ManyToMany(mappedBy="timeslots")
 	private Set<Doctor> doctor = new HashSet<Doctor>();
@@ -37,11 +38,26 @@ public class TimeSlot {
 	//public int getSemester() {return semester;}
 	public Doctor getDoctor() {return examiner;}
 
-	public void setCivilian(Civilian c) {
-		examinee = c;
-		available = false;
+//	public void setCivilian(Civilian c) {
+//		examinee = c;
+//		available = false;
+//	}
+	
+	
+	
+	public int getTimeSlotDay() {
+		return startAppointment.getDayOfYear();
 	}
 	
+	// TreeSet that contains next 30 days (to give the opportunity to civilian to search for available time slots for a month
+	public Set<Integer> getNextThirtyDays(TimeSlot t) {
+		for (int i= t.getTimeSlotDay(); i <= t.getTimeSlotDay() + 30; i++) {
+			nextThirtyDays.add(i);
+		}
+		return nextThirtyDays;
+	}
 	
+
+
 	
 }
