@@ -12,6 +12,8 @@ public class HelloController {
 	@Autowired
 	private HelloService hs;
 	
+	
+	/*	These are not implemented.
 	@GetMapping(path="/civilians")
 	public List<Civilian> getAllCivilians()  throws Exception{
 		return hs.getAllCivilians();
@@ -21,4 +23,5 @@ public class HelloController {
 	public void addCivilian(@RequestBody Civilian st) throws Exception {
 		hs.addCivilian(st);
 	}
+	*/
 }

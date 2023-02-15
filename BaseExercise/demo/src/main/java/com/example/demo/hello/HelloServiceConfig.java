@@ -12,38 +12,27 @@ public class HelloServiceConfig implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
+		
+		/*	Hypotheses:
+		 * 	Doctors have unique surnames, this could have been done by socialSec
+		 * 	Doctors input a unique id as an ID for the timeslot, should be serializable
+		 * 
+		 */
+		
 		Doctor d1 = new Doctor("Dimitris", "ZG", "30029300183");
 		hs.addDoctor(d1);
-		Doctor d2 = new Doctor("D"
-				+ "imitris", "KP", "15129300184");
+		Doctor d2 = new Doctor("Dimitris", "KP", "15129300184");
 		hs.addDoctor(d2);
-		/*
-		Course c3 = new Course("OOP", 3);
-		c3.setProfessor(p3);
-		Course c4 = new Course("SE", 4);
-		c4.setProfessor(p3);
-		Course c1 = new Course("SQA", 5);
-		c1.setProfessor(p1);
-		Course c2 = new Course("Mobile", 6);
-		c2.setProfessor(p1);
-		Course c5 = new Course("Patterns", 7);
-		c5.setProfessor(p2);
-		*/
-		
-		/*Civilian s1 = new Civilian("Nikos",28,"Thessaloniki");
-		s1.addCourse(c2);
-		s1.addCourse(c3);
-		hs.addCivilian(s1);
-		
-		Civilian s2 = new Civilian("Elvira",35,"Thessaloniki");
-		s2.addCourse(c1);
-		s2.addCourse(c4);
-		hs.addCivilian(s2);
-		
-		Civilian s3 = new Civilian("Sofia",36,"Groningen");
-		s3.addCourse(c5);
-		hs.addCivilian(s3);
-		*/
+		VaccinationCenter vc1 = new VaccinationCenter(41, "31st Street");
+		hs.addVC(vc1);
+		Civilian c1 = new Civilian("Xrhstos", "Lemonis", "15110000320", "12310815", "lemo@randomail.com");
+		hs.addCivilian(c1);
+		Civilian c2 = new Civilian("Nikos", "Xrhstou", "15110000312", "123180321", "nikosx@randomail.com");
+		hs.addCivilian(c2);
+		TimeSlot ts1 = new TimeSlot(1,"2022-02-20T06:30:00", "2022-02-20T07:00:00");
+		hs.addTimeSlot(ts1);
+		TimeSlot ts2 = new TimeSlot(2,"2022-02-20T07:00:00", "2022-02-20T07:30:00");
+		hs.addTimeSlot(ts2);
 	}
 
 }

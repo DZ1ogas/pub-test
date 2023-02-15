@@ -11,6 +11,10 @@ public class HelloService {
 	private CivilianRepository civilianRepository;
 	@Autowired
 	private DoctorRepository doctorRepository;
+	@Autowired
+	private VaccinationCenterRepository vcRepository;
+	@Autowired
+	private TimeSlotRepository tsRepository;
 
 	public void addCivilian(Civilian s) throws Exception {
 		Optional<Civilian> byId = civilianRepository.findById(s.getlastName());
@@ -23,6 +27,18 @@ public class HelloService {
 		if(!byId.isPresent())
 			doctorRepository.save(p);
 	}	
+	
+	public void addVC(VaccinationCenter vc) throws Exception {
+		Optional<VaccinationCenter> byId = vcRepository.findById(String.valueOf(vc.getNumID()));
+		if(!byId.isPresent())
+			vcRepository.save(vc);
+	}
+	
+	public void addTimeSlot(TimeSlot ts) throws Exception {
+		Optional<TimeSlot> byId = tsRepository.findById(String.valueOf(ts.getNumID()));
+		if(!byId.isPresent())
+			tsRepository.save(ts);
+	}
 
 	public List<Civilian> getAllCivilians() throws Exception {
 		return civilianRepository.findAll();

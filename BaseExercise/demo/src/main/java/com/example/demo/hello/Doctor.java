@@ -8,8 +8,9 @@ import javax.persistence.*;
 
 @Entity
 public class Doctor {
-	@Id
+	
 	private String firstName;
+	@Id
 	private String lastName;
 	private String socialSec;
 

@@ -6,8 +6,9 @@ import javax.persistence.*;
 
 @Entity
 public class Civilian {
-	@Id
+	
 	private String firstName;
+	@Id
 	private String lastName;
 	private String socialSec;
 	private String afm;

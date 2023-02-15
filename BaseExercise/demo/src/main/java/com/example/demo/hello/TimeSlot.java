@@ -6,7 +6,11 @@ import javax.persistence.*;
 
 @Entity
 public class TimeSlot {
-	@Id
+	
+	//normally this would have a serializable id, we are doing this in a manual way
+	
+	@Id 
+	private long timeSlotID;
 	private LocalDateTime startAppointment;
 	private LocalDateTime endAppointment;
 	private Doctor examiner;
@@ -24,7 +28,8 @@ public class TimeSlot {
 		
 	}
 	
-	public TimeSlot(String startTime, String endTime) {		//String must be "2015-02-20T06:30:00"
+	public TimeSlot(long id,String startTime, String endTime) {		//String must be "2015-02-20T06:30:00"
+		timeSlotID = id;
 		startAppointment = LocalDateTime.parse(startTime);
 		endAppointment = LocalDateTime.parse(endTime);
 		
@@ -43,7 +48,7 @@ public class TimeSlot {
 //		available = false;
 //	}
 	
-	
+	public long getNumID() {return timeSlotID;}
 	
 	public int getTimeSlotDay() {
 		return startAppointment.getDayOfYear();
@@ -56,8 +61,5 @@ public class TimeSlot {
 		}
 		return nextThirtyDays;
 	}
-	
-
-
 	
 }
