@@ -51,7 +51,7 @@ public class Doctor {
 	
 	// TODO add timeslot method after implementation of timeslot
 	public void addTimeslot(TimeSlot t) {
-		timeslots.add(t);		
+		timeslots.add(t);
 	}
 	
 	// add an appointment to the appointment list

@@ -91,6 +91,9 @@ public class Civilian {
 	public String getSocialSec() {return socialSec;}
 	public String getAfm() {return afm;}
 	public String getEmail() {return email;}
+	public void addTimeslot(TimeSlot t) {
+		timeslots.add(t);
+	}
 	// TODO fix should be rantevou
 	public Set<TimeSlot> getTimeslots() {return timeslots;}
 	

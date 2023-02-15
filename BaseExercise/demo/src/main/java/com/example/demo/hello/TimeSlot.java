@@ -14,6 +14,7 @@ public class TimeSlot {
 	private LocalDateTime startAppointment;
 	private LocalDateTime endAppointment;
 	private Doctor examiner;
+	private VaccinationCenter vacCenter;
 	private TreeSet<Integer> nextThirtyDays = new TreeSet<Integer>();
 
 	
@@ -34,9 +35,17 @@ public class TimeSlot {
 		endAppointment = LocalDateTime.parse(endTime);
 		
 	}
-	
+	//Setter for the 1Doctor to ManyTimeslots
 	public void setDoctor(Doctor d) {
 		examiner = d;
+	}
+	
+	public void setCivilian(Civilian c) {
+		examinee = c;
+	}
+	//Setter for the 1VaccinationCenter to ManyTimeslots
+	public void setVC(VaccinationCenter vc) {
+		vacCenter = vc;
 	}
 	
 	//public String getName() {return name;}
