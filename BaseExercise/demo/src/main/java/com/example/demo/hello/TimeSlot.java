@@ -13,13 +13,20 @@ public class TimeSlot {
 	private long timeSlotID;
 	private LocalDateTime startAppointment;
 	private LocalDateTime endAppointment;
+	
+	@ManyToOne
+	@JoinColumn(name="doctor_lastName")
 	private Doctor examiner;
+	
+	@ManyToOne
+	@JoinColumn(name="vaccinationCenter_numID")
 	private VaccinationCenter vacCenter;
 	private TreeSet<Integer> nextThirtyDays = new TreeSet<Integer>();
 
-	
+	/*	
 	@ManyToMany(mappedBy="timeslots")
-	private Set<Doctor> doctor = new HashSet<Doctor>();
+	*/
+	private Set<Doctor> doctors = new HashSet<Doctor>();
 	
 	@ManyToOne
 	@JoinColumn(name="civilian_lastName")

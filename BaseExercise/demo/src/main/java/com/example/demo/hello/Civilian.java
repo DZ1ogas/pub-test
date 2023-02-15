@@ -16,22 +16,21 @@ public class Civilian {
 	private int counter = 2;
 	private Appointment appo;
 
-	// TODO connection to other tables  1 to 1
-	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinTable(name="civilian_timeslot", 
-			   joinColumns = @JoinColumn(name="civilian_lastName"),
-			   inverseJoinColumns = @JoinColumn(name="timeslots"))
-	
+	@OneToMany(mappedBy="timeSlotID", 
+		       cascade= CascadeType.ALL,
+		       fetch = FetchType.LAZY)
 	private Set<TimeSlot> timeslots = new HashSet<TimeSlot>();
 	
-	@ManyToOne
-	@JoinColumn(name="Vaccination_Center_name")
+	/*	This is currently not implemented
+	 *	@ManyToOne
+	 *	@JoinColumn(name="Vaccination_Center_name")
+	*/
 	private VaccinationCenter vc; 
 	
 
-	//default constructor
-	public Civilian(){}
-
+	//	Default constructor
+	public Civilian() {}
+	//	Basic constructor
 	public Civilian(String fn, String ln, String ss, String a, String em) {
 		firstName = fn;
 		lastName = ln;
@@ -40,15 +39,14 @@ public class Civilian {
 		email = em;
 	}
 	
-	
-//	public void addTimeslot(TimeSlot t) {
-//		timeslots.add(t);
-//		t.setCivilian(this);
-//	}
-	
+	//This contributes to 1 to many connection
+	public void addTimeslot(TimeSlot t){
+		timeslots.add(t);
+	}
 	
 	
-	// Create an Appointment based on the availability of a vaccination center
+	
+	// TODO Create an Appointment based on the availability of a vaccination center
 	// edw sigoura tha xreiastei logiki me JS gia ta buttons
 	public void createAppointment(TimeSlot t){
 		boolean createAppointmentButton = false;
@@ -91,9 +89,6 @@ public class Civilian {
 	public String getSocialSec() {return socialSec;}
 	public String getAfm() {return afm;}
 	public String getEmail() {return email;}
-	public void addTimeslot(TimeSlot t) {
-		timeslots.add(t);
-	}
 	// TODO fix should be rantevou
 	public Set<TimeSlot> getTimeslots() {return timeslots;}
 	

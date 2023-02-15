@@ -14,53 +14,58 @@ public class Doctor {
 	private String lastName;
 	private String socialSec;
 
-	// TODO connection to tables
-	
-	@OneToMany(mappedBy="lastName", 
+	@OneToMany(mappedBy="timeSlotID", 
 		       cascade= CascadeType.ALL,
 		       fetch = FetchType.LAZY)
-	private HashSet<TimeSlot> timeslots = new HashSet<TimeSlot>();
+	private Set<TimeSlot> timeslots = new HashSet<TimeSlot>();
+	/*	TODO NOT IMPLEMENTED
+	@OneToMany(mappedBy="DoctorName", 
+		       cascade= CascadeType.ALL,
+		       fetch = FetchType.LAZY)
+		       */
 	private HashSet<TimeSlot> availableTimeSlots = new HashSet<TimeSlot>();
-	
-	@OneToMany
-	(mappedBy="lastName",
-			cascade= CascadeType.ALL,
-			fetch = FetchType.LAZY)
+	/*	TODO IMPLEMENTED
+	@OneToMany(mappedBy="DoctorName", 
+		       cascade= CascadeType.ALL,
+		       fetch = FetchType.LAZY)
+		       */
 	private Set<Appointment> appos = new HashSet<Appointment>();
 	
+	//	??
 	Vaccination v;
 	
-	@OneToMany
-	(mappedBy="lastName",
-			cascade= CascadeType.ALL,
-			fetch = FetchType.LAZY)
+	/*	TODO IMPLEMENTED
+	@OneToMany(mappedBy="DoctorName", 
+		       cascade= CascadeType.ALL,
+		       fetch = FetchType.LAZY)
+		       */
 	private Set<Vaccination> vSet = new HashSet<Vaccination>();
 
-	
+	//	Default constructor
 	public Doctor() {}
 	
+	//	Basic constructor
 	public Doctor(String fn, String ln, String ss) {
 		firstName = fn;
 		lastName = ln;
 		socialSec = ss;
 	}
-	
 	public String getfirstName() {return firstName;}
 	public String getlastName() {return lastName;}
 	public String getSocialSec() {return socialSec;}
 	
-	// TODO add timeslot method after implementation of timeslot
+	// This contributes to 1 to many connection
 	public void addTimeslot(TimeSlot t) {
 		timeslots.add(t);
 	}
 	
-	// add an appointment to the appointment list
+	// TODO add an appointment to the appointment list
 	public void addAppointment(Appointment appo) {
 		appos.add(appo);
 	}
 	
 	
-	// get the appointments of the day
+	// TODO get the appointments of the day
 	public Set<Appointment> getAppointmentsOfTheDay(int day) {
 		for(Appointment appo : appos) {
 			if (day == appo.getAppointmentDay())
@@ -96,20 +101,12 @@ public class Doctor {
 		
 		v = new Vaccination(c, this, dateInit, getVaccinationExpirationDate(dateInit));
 		// String timeSpaceOfEffect = dateInit + " - " + getVaccinationExpiredDate(dateInit);
-		
 	}
-	
-	
 	
 	// Get Expiration date
 	public String getVaccinationExpirationDate(String dateInit) {
 		return v.getExpirationDate().toString();
 	}
-	
-
-	
-
-
 }
 	
 	

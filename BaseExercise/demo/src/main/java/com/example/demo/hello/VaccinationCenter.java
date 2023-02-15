@@ -5,33 +5,40 @@ import javax.persistence.*;
 
 @Entity
 public class VaccinationCenter {
+	
 	@Id
 	private int numID;
 	private String address;
-	
-	@OneToMany(mappedBy="numID", 
+	/*	Not required yet
+	@OneToMany(mappedBy="timeSlotID", 
 		       cascade= CascadeType.ALL,
 		       fetch = FetchType.LAZY)
+	*/
 	private Set<Vaccination> vSet = new HashSet<Vaccination>();
 
-	// TODO connection to tables
+	/*	Not required yet
 	@OneToMany(mappedBy="numID", 
 		       cascade= CascadeType.ALL,
 		       fetch = FetchType.LAZY)
+	*/
 	private Set<Doctor> dSet = new HashSet<Doctor>();
 	
-	@OneToMany(mappedBy="numID", 
+	@OneToMany(mappedBy="timeSlotID", 
 		       cascade= CascadeType.ALL,
 		       fetch = FetchType.LAZY)
-	private List<TimeSlot> availableTimeSlotsPerVc = new ArrayList<TimeSlot>();
+	private Set<TimeSlot> timeslots = new HashSet<TimeSlot>();
 	
+	/*	Probably not required yet
 	@OneToMany(mappedBy="numID", 
 		       cascade= CascadeType.ALL,
 		       fetch = FetchType.LAZY)
+	*/
 	private Set<Civilian> cSet = new HashSet<Civilian>();
 	
+	//	Default Constructor
 	public VaccinationCenter() {}
 	
+	//	Basic Constructor
 	public VaccinationCenter(int num, String ad) {
 		numID = num;
 		address = ad;
@@ -46,29 +53,33 @@ public class VaccinationCenter {
 		dSet.add(d);		
 	}
 	
+	public void addTimeslot(TimeSlot t) {
+		timeslots.add(t);
+	}
+	
 	// get all timeslots that a civilian can select for booking an appointment based on the vaccination center
 	// it is a List since we might have some doctors with the same opened time slots
-	public List<TimeSlot> getAvailableTimeSlotsPerVc() {
+	public Set<TimeSlot> getAvailableTimeSlotsPerVc() {
 		for(Doctor d : dSet) {
-			availableTimeSlotsPerVc.addAll(d.getAvailableTimeSlots());
+			timeslots.addAll(d.getAvailableTimeSlots());
 		}
-		return availableTimeSlotsPerVc;
+		return timeslots;
 	}
 	
 	// store all the vaccinations here, in order to get all the vaccinated civilians
-	public HashSet<Vaccination> getAllVaccinations() {
+	public Set<Vaccination> getAllVaccinations() {
 		for(Doctor d : dSet) {
 			vSet.add(d.v);
 		}
-		return (HashSet<Vaccination>) vSet;
+		return (Set<Vaccination>) vSet;
 	}
 	
 	// create a set with vaccinated civilians
-	public HashSet<Civilian> getAllVaccinatedCivillians() {
+	public Set<Civilian> getAllVaccinatedCivillians() {
 		for(Vaccination v : vSet) {
 			cSet.add(v.getVaccinatedCivilian());
 		}
-		return (HashSet<Civilian>) cSet;
+		return (Set<Civilian>) cSet;
 	}
 	
 	// define if a civilian is vaccinated
