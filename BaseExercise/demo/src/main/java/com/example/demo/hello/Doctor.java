@@ -23,23 +23,23 @@ public class Doctor {
 		       cascade= CascadeType.ALL,
 		       fetch = FetchType.LAZY)
 		       */
-	private HashSet<TimeSlot> availableTimeSlots = new HashSet<TimeSlot>();
+	//private HashSet<TimeSlot> availableTimeSlots = new HashSet<TimeSlot>();
 	/*	TODO IMPLEMENTED
 	@OneToMany(mappedBy="DoctorName", 
 		       cascade= CascadeType.ALL,
 		       fetch = FetchType.LAZY)
 		       */
-	private Set<Appointment> appos = new HashSet<Appointment>();
+	//private Set<Appointment> appos = new HashSet<Appointment>();
 	
 	//	??
-	Vaccination v;
+	//Vaccination v;
 	
 	/*	TODO IMPLEMENTED
 	@OneToMany(mappedBy="DoctorName", 
 		       cascade= CascadeType.ALL,
 		       fetch = FetchType.LAZY)
 		       */
-	private Set<Vaccination> vSet = new HashSet<Vaccination>();
+	//private Set<Vaccination> vSet = new HashSet<Vaccination>();
 
 	//	Default constructor
 	public Doctor() {}
@@ -58,7 +58,7 @@ public class Doctor {
 	public void addTimeslot(TimeSlot t) {
 		timeslots.add(t);
 	}
-	
+	/*
 	// TODO add an appointment to the appointment list
 	public void addAppointment(Appointment appo) {
 		appos.add(appo);
@@ -94,18 +94,18 @@ public class Doctor {
 			}
 		}
 		return availableTimeSlots;
-	}
+	}*/
 	
 	public void setNewVaccination(Civilian c, String dateInit) {
 		// if((dateFinal.getMonth().getValue() - dateInit.getMonth().getValue() == 6) || (dateFinal.getMonth().getValue() - dateInit.getMonth().getValue() == -6)) {
 		
-		v = new Vaccination(c, this, dateInit, getVaccinationExpirationDate(dateInit));
+		//v = new Vaccination(c, this, dateInit, getVaccinationExpirationDate(dateInit));
 		// String timeSpaceOfEffect = dateInit + " - " + getVaccinationExpiredDate(dateInit);
 	}
 	
 	// Get Expiration date
 	public String getVaccinationExpirationDate(String dateInit) {
-		return v.getExpirationDate().toString();
+		return "sample"; //v.getExpirationDate().toString();
 	}
 }
 	

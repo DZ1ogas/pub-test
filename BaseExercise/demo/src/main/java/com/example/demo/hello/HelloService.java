@@ -22,20 +22,20 @@ public class HelloService {
 			civilianRepository.save(s);
 	}
 	
-	public void addDoctor(Doctor p) throws Exception {
-		Optional<Doctor> byId = doctorRepository.findById(p.getlastName());
+	public void addDoctor(Doctor d) throws Exception {
+		Optional<Doctor> byId = doctorRepository.findById(d.getlastName());
 		if(!byId.isPresent())
-			doctorRepository.save(p);
+			doctorRepository.save(d);
 	}	
 	
 	public void addVC(VaccinationCenter vc) throws Exception {
-		Optional<VaccinationCenter> byId = vcRepository.findById(String.valueOf(vc.getNumID()));
+		Optional<VaccinationCenter> byId = vcRepository.findById(vc.getNumID());
 		if(!byId.isPresent())
 			vcRepository.save(vc);
 	}
 	
 	public void addTimeSlot(TimeSlot ts) throws Exception {
-		Optional<TimeSlot> byId = tsRepository.findById(String.valueOf(ts.getNumID()));
+		Optional<TimeSlot> byId = tsRepository.findById(ts.getNumID());
 		if(!byId.isPresent())
 			tsRepository.save(ts);
 	}

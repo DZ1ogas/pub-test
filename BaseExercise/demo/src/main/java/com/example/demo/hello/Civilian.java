@@ -13,9 +13,10 @@ public class Civilian {
 	private String socialSec;
 	private String afm;
 	private String email;
-	private int counter = 2;
+	/*private int counter = 2;
 	private Appointment appo;
-
+	*/
+	
 	@OneToMany(mappedBy="timeSlotID", 
 		       cascade= CascadeType.ALL,
 		       fetch = FetchType.LAZY)
@@ -25,7 +26,7 @@ public class Civilian {
 	 *	@ManyToOne
 	 *	@JoinColumn(name="Vaccination_Center_name")
 	*/
-	private VaccinationCenter vc; 
+	//private VaccinationCenter vc; 
 	
 
 	//	Default constructor
@@ -45,7 +46,7 @@ public class Civilian {
 	}
 	
 	
-	
+	/*
 	// TODO Create an Appointment based on the availability of a vaccination center
 	// edw sigoura tha xreiastei logiki me JS gia ta buttons
 	public void createAppointment(TimeSlot t){
@@ -70,9 +71,9 @@ public class Civilian {
 		}
 		
 		
-	}
+	}*/
 	
-
+	/*
 	// Civilian searches on the platform to check his/her vaccination status
 	public String getStatus(String dateInit) {
 		if (vc.isVaccinated(this)  &&  LocalDateTime.parse(dateInit).plusMonths(6).getDayOfYear() > LocalDateTime.now().getDayOfYear()) {
@@ -83,7 +84,7 @@ public class Civilian {
 		}
 	}
 	
-	
+	*/
 	public String getfirstName() {return firstName;}
 	public String getlastName() {return lastName;}
 	public String getSocialSec() {return socialSec;}
